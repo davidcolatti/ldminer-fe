@@ -1,4 +1,5 @@
-const { ApolloServer } = require("apollo-server");
+const { ApolloServer } = require("apollo-server-express");
+const express = require("express");
 const mongoose = require("mongoose");
 const typeDefs = require("./graphql/typeDefs");
 const resolvers = require("./graphql/resolvers");
@@ -21,13 +22,14 @@ const startServer = async () => {
     console.error(`Error connecting to mongo ${err}`);
   }
 
-  const server = new ApolloServer({
-    typeDefs,
-    resolvers,
-  });
+  const server = new ApolloServer({ typeDefs, resolvers });
 
-  const { url } = await server.listen(4000);
-  console.log(`Graphql Server Running at ${url} `);
+  const app = express();
+  server.applyMiddleware({ app });
+
+  app.listen({ port: 4000 }, () =>
+    console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
+  );
 };
 
 startServer();
