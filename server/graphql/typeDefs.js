@@ -4,7 +4,9 @@ const typeDefs = gql`
   type Query {
     leads: [Lead]
     leadsCount: Int
+    findUser(uid: String!): String
   }
+
   type Lead {
     _id: ID
     businessName: String
@@ -19,6 +21,16 @@ const typeDefs = gql`
     category: [String]
     email: String
     disposition: String
+  }
+
+  type User {
+    _id: ID
+    uid: String
+    email: String
+    displayName: String
+    photoURL: String
+    indexOfMasterLeads: Int
+    leadsList: [Lead]
   }
 `;
 

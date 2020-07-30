@@ -12,6 +12,9 @@ const resolvers = {
 
       return res;
     },
+    findUser: async (_, { uid }) => {
+      return `hi the uid is: ${uid}`;
+    },
   },
 };
 
