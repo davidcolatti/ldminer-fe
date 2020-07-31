@@ -1,4 +1,5 @@
 const Lead = require("../models/Lead");
+const User = require("../models/User");
 
 const resolvers = {
   Query: {
@@ -13,7 +14,9 @@ const resolvers = {
       return res;
     },
     findUser: async (_, { uid }) => {
-      return `hi the uid is: ${uid}`;
+      const user = await User.findOne({ uid: uid });
+
+      return user;
     },
   },
 };

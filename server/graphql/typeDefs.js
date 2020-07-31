@@ -4,7 +4,7 @@ const typeDefs = gql`
   type Query {
     leads: [Lead]
     leadsCount: Int
-    findUser(uid: String!): String
+    findUser(uid: String!): User!
   }
 
   type Lead {
