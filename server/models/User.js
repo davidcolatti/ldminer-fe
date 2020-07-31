@@ -4,9 +4,9 @@ const { Schema } = require("mongoose");
 const userSchema = new Schema(
   {
     uid: String,
-    email: String,
     displayName: String,
     photoURL: String,
+    email: String,
     indexOfMasterLeads: Number,
     leadsList: [Object],
   },
