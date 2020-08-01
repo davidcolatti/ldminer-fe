@@ -1,7 +1,7 @@
 import React from "react";
 import { auth } from "../../config/Fire";
 
-const DashBoard = () => {
+const Dashboard = () => {
   const signOut = () => {
     auth.signOut();
   };
@@ -13,4 +13,4 @@ const DashBoard = () => {
   );
 };
 
-export default DashBoard;
+export default Dashboard;

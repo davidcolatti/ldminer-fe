@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
-
-import DashBoard from "./components/DashBoard";
-import LandingPage from "./components/LandingPage";
 import { UserContext } from "./providers/UserProvider";
 import actions from "./services";
+
+import NavBar from "./components/NavBar";
+import Dashboard from "./components/Dashboard";
+import LandingPage from "./components/LandingPage";
 
 const App = () => {
   const userAuthenticaton = useContext(UserContext);
@@ -21,9 +22,10 @@ const App = () => {
 
   return (
     <div>
+      <NavBar />
       <h1>{user ? user.displayName : "You are Signed Out"}</h1>
       <LandingPage />
-      <DashBoard />
+      <Dashboard />
     </div>
   );
 };
