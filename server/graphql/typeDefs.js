@@ -1,12 +1,6 @@
 const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
-  type Query {
-    leads: [Lead]
-    leadsCount: Int
-    findUser(uid: String!): User!
-  }
-
   type Lead {
     _id: ID
     businessName: String
@@ -31,6 +25,12 @@ const typeDefs = gql`
     photoURL: String
     indexOfMasterLeads: Int
     leadsList: [Lead]
+  }
+
+  type Query {
+    leads: [Lead]
+    leadsCount: Int
+    findUser(uid: String!): User!
   }
 `;
 
