@@ -21,8 +21,6 @@ router.post("/register", async (req, res, next) => {
         newUser,
       });
     }
-  } else {
-    res.status(500).json({ message: "Please Log In With Google" });
   }
 });
 

@@ -19,3 +19,36 @@ export const GET_LEADS = gql`
     }
   }
 `;
+
+export const GET_LEADSCOUNT = gql`
+  query {
+    leadsCount
+  }
+`;
+
+export const GET_USER = gql`
+  query findUser($uid: String!) {
+    findUser(uid: $uid) {
+      _id
+      uid
+      displayName
+      email
+      photoURL
+      leadsList {
+        _id
+        businessName
+        phoneNumber
+        city
+        state
+        firstName
+        lastName
+        streetAddress
+        secondPhoneNumber
+        notes
+        category
+        email
+        disposition
+      }
+    }
+  }
+`;
