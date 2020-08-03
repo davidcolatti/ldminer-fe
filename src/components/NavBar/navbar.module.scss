@@ -1,9 +1,22 @@
 .navBar {
-  border: 1px solid red;
-  padding: 0.2rem 1rem;
-  display: flex;
+  background-color: rgba(0, 0, 0, 0.384);
 
   .emblem {
     width: 60px;
+  }
+
+  .userIcon {
+    font-size: 20px;
+  }
+
+  .userDropDown {
+    transform: translate3d(-120px, 40px, 0px);
+  }
+
+  // collapse bar
+  .navBarCollapse {
+    div {
+      display: none;
+    }
   }
 }
