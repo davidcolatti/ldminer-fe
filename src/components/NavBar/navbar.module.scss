@@ -1,13 +1,7 @@
 .navBar {
   border: 1px solid red;
   padding: 0.2rem 1rem;
-
-  span {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 25%;
-  }
+  display: flex;
 
   .emblem {
     width: 60px;
