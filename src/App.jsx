@@ -22,7 +22,7 @@ const App = () => {
 
   return (
     <div>
-      <NavBar />
+      <NavBar user={user} />
       <h1>{user ? user.displayName : "You are Signed Out"}</h1>
       <LandingPage />
       <Dashboard />

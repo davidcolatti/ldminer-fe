@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import styles from "./navbar.module.scss";
-import emblem from "./../../assets/images/app-emblem.png";
 import {
   MDBNavbar,
   MDBNavbarBrand,
@@ -15,12 +13,19 @@ import {
   MDBDropdownItem,
   MDBIcon,
 } from "mdbreact";
+import styles from "./navbar.module.scss";
+import emblem from "./../../assets/images/app-emblem.png";
+import { signInWithGoogle, auth } from "../../config/Fire";
 
-const NavBar = () => {
+const NavBar = ({ user }) => {
   const [isOpen, setToggle] = useState(false);
 
   const toggleCollapse = () => {
     setToggle(!isOpen);
+  };
+
+  const handleSignOut = () => {
+    auth.signOut();
   };
 
   return (
@@ -28,53 +33,61 @@ const NavBar = () => {
       <MDBNavbarBrand>
         <img src={emblem} className={styles.emblem} alt="emblem" />
       </MDBNavbarBrand>
-      <MDBNavbarToggler onClick={toggleCollapse} />
-      <MDBCollapse
-        id="navbarCollapse3"
-        isOpen={isOpen}
-        navbar
-        className={isOpen && styles.navBarCollapse}
-      >
-        <MDBNavbarNav left>
-          <MDBNavItem>
-            <MDBNavLink to="#!">Home</MDBNavLink>
-          </MDBNavItem>
-          <MDBNavItem>
-            <MDBNavLink to="#!">Features</MDBNavLink>
-          </MDBNavItem>
-          <MDBNavItem>
-            <MDBNavLink to="#!">Pricing</MDBNavLink>
-          </MDBNavItem>
-          <MDBNavItem>
-            <MDBDropdown>
-              <MDBDropdownToggle nav caret>
-                <div className="d-none d-md-inline">Dropdown</div>
-              </MDBDropdownToggle>
-              <MDBDropdownMenu className="dropdown-default">
-                <MDBDropdownItem href="#!">Action</MDBDropdownItem>
-                <MDBDropdownItem href="#!">Another Action</MDBDropdownItem>
-                <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-              </MDBDropdownMenu>
-            </MDBDropdown>
-          </MDBNavItem>
-        </MDBNavbarNav>
+
+      {user ? (
+        <>
+          <MDBNavbarToggler onClick={toggleCollapse} />
+          <MDBCollapse
+            id="navbarCollapse3"
+            isOpen={isOpen}
+            navbar
+            className={isOpen && styles.navBarCollapse}
+          >
+            <MDBNavbarNav left>
+              <MDBNavItem>
+                <MDBNavLink to="/">Home</MDBNavLink>
+              </MDBNavItem>
+              <MDBNavItem>
+                <MDBNavLink to="/">Dashboard</MDBNavLink>
+              </MDBNavItem>
+              <MDBNavItem>
+                <MDBDropdown>
+                  <MDBDropdownToggle nav caret>
+                    <div className="d-none d-md-inline">Prospecting</div>
+                  </MDBDropdownToggle>
+                  <MDBDropdownMenu className="dropdown-default">
+                    <MDBDropdownItem href="/">Search Tool</MDBDropdownItem>
+                    <MDBDropdownItem href="/">Random Leads</MDBDropdownItem>
+                  </MDBDropdownMenu>
+                </MDBDropdown>
+              </MDBNavItem>
+            </MDBNavbarNav>
+            <MDBNavbarNav right>
+              <MDBNavItem>
+                <MDBDropdown>
+                  <MDBDropdownToggle nav caret>
+                    <MDBIcon icon="user" className={styles.userIcon} />
+                  </MDBDropdownToggle>
+
+                  <MDBDropdownMenu className={styles.userDropDown}>
+                    <MDBDropdownItem href="/" onClick={handleSignOut}>
+                      Sign Out
+                    </MDBDropdownItem>
+                  </MDBDropdownMenu>
+                </MDBDropdown>
+              </MDBNavItem>
+            </MDBNavbarNav>
+          </MDBCollapse>
+        </>
+      ) : (
         <MDBNavbarNav right>
           <MDBNavItem>
-            <MDBDropdown>
-              <MDBDropdownToggle nav caret>
-                <MDBIcon icon="user" className={styles.userIcon} />
-              </MDBDropdownToggle>
-
-              <MDBDropdownMenu className={styles.userDropDown}>
-                <MDBDropdownItem href="#!">Action</MDBDropdownItem>
-                <MDBDropdownItem href="#!">Another Action</MDBDropdownItem>
-                <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-              </MDBDropdownMenu>
-            </MDBDropdown>
+            <MDBNavLink to="/" onClick={signInWithGoogle}>
+              Sign In
+            </MDBNavLink>
           </MDBNavItem>
         </MDBNavbarNav>
-      </MDBCollapse>
+      )}
     </MDBNavbar>
   );
 };

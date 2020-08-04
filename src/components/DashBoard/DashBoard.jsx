@@ -1,16 +1,7 @@
 import React from "react";
-import { auth } from "../../config/Fire";
 
 const Dashboard = () => {
-  const signOut = () => {
-    auth.signOut();
-  };
-
-  return (
-    <div>
-      <button onClick={signOut}>Sign Out</button>
-    </div>
-  );
+  return <div>Dashboard</div>;
 };
 
 export default Dashboard;

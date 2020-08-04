@@ -1,12 +1,7 @@
 import React from "react";
-import { signInWithGoogle } from "../../config/Fire";
 
 const LandingPage = () => {
-  return (
-    <div>
-      <button onClick={signInWithGoogle}>Click Me</button>
-    </div>
-  );
+  return <div>LandingPage</div>;
 };
 
 export default LandingPage;
