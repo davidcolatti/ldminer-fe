@@ -37,12 +37,7 @@ const NavBar = ({ user }) => {
       {user ? (
         <>
           <MDBNavbarToggler onClick={toggleCollapse} />
-          <MDBCollapse
-            id="navbarCollapse3"
-            isOpen={isOpen}
-            navbar
-            className={isOpen && styles.navBarCollapse}
-          >
+          <MDBCollapse id="navbarCollapse3" isOpen={isOpen} navbar>
             <MDBNavbarNav left>
               <MDBNavItem>
                 <MDBNavLink to="/">Home</MDBNavLink>
@@ -51,30 +46,49 @@ const NavBar = ({ user }) => {
                 <MDBNavLink to="/">Dashboard</MDBNavLink>
               </MDBNavItem>
               <MDBNavItem>
-                <MDBDropdown>
-                  <MDBDropdownToggle nav caret>
-                    <div className="d-none d-md-inline">Prospecting</div>
-                  </MDBDropdownToggle>
-                  <MDBDropdownMenu className="dropdown-default">
-                    <MDBDropdownItem href="/">Search Tool</MDBDropdownItem>
-                    <MDBDropdownItem href="/">Random Leads</MDBDropdownItem>
-                  </MDBDropdownMenu>
-                </MDBDropdown>
+                {isOpen ? (
+                  <>
+                    <MDBNavItem>
+                      <MDBNavLink to="/">Search Tool</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="/">Random Leads</MDBNavLink>
+                    </MDBNavItem>
+                  </>
+                ) : (
+                  <MDBDropdown>
+                    <MDBDropdownToggle nav caret>
+                      <div className="d-none d-md-inline">Prospecting</div>
+                    </MDBDropdownToggle>
+                    <MDBDropdownMenu className="dropdown-default">
+                      <MDBDropdownItem href="/">Search Tool</MDBDropdownItem>
+                      <MDBDropdownItem href="/">Random Leads</MDBDropdownItem>
+                    </MDBDropdownMenu>
+                  </MDBDropdown>
+                )}
               </MDBNavItem>
             </MDBNavbarNav>
             <MDBNavbarNav right>
               <MDBNavItem>
-                <MDBDropdown>
-                  <MDBDropdownToggle nav caret>
-                    <MDBIcon icon="user" className={styles.userIcon} />
-                  </MDBDropdownToggle>
-
-                  <MDBDropdownMenu className={styles.userDropDown}>
-                    <MDBDropdownItem href="/" onClick={handleSignOut}>
+                {isOpen ? (
+                  <MDBNavItem>
+                    <MDBNavLink to="/" onClick={handleSignOut}>
                       Sign Out
-                    </MDBDropdownItem>
-                  </MDBDropdownMenu>
-                </MDBDropdown>
+                    </MDBNavLink>
+                  </MDBNavItem>
+                ) : (
+                  <MDBDropdown>
+                    <MDBDropdownToggle nav caret>
+                      <MDBIcon icon="user" className={styles.userIcon} />
+                    </MDBDropdownToggle>
+
+                    <MDBDropdownMenu className={styles.userDropDown}>
+                      <MDBDropdownItem href="/" onClick={handleSignOut}>
+                        Sign Out
+                      </MDBDropdownItem>
+                    </MDBDropdownMenu>
+                  </MDBDropdown>
+                )}
               </MDBNavItem>
             </MDBNavbarNav>
           </MDBCollapse>

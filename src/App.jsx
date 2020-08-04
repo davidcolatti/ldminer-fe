@@ -17,6 +17,7 @@ const App = () => {
       console.log(data);
       setUser(data.currentUser);
     };
+
     checkCurrentUser();
   }, [userAuthenticaton]);
 

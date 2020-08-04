@@ -10,7 +10,7 @@ const UserProvider = ({ children }) => {
     auth.onAuthStateChanged((userAuth) => {
       setUser(userAuth?.providerData[0]);
     });
-  }, []);
+  }, [user]);
 
   return <UserContext.Provider value={user}>{children}</UserContext.Provider>;
 };
