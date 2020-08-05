@@ -5,6 +5,11 @@ import actions from "./services";
 import NavBar from "./components/NavBar";
 import Dashboard from "./components/Dashboard";
 import LandingPage from "./components/LandingPage";
+import { Switch, Route } from "react-router-dom";
+
+const NotFound = () => {
+  return <div>404</div>;
+};
 
 const App = () => {
   const userAuthenticaton = useContext(UserContext);
@@ -24,9 +29,13 @@ const App = () => {
   return (
     <div>
       <NavBar user={user} />
-      <h1>{user ? user.displayName : "You are Signed Out"}</h1>
-      <LandingPage />
-      <Dashboard />
+
+      <Switch>
+        <Route exact path="/" component={LandingPage} />
+        <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/random-leads" component={NotFound} />
+        <Route exact path="/search-tool" component={NotFound} />
+      </Switch>
     </div>
   );
 };

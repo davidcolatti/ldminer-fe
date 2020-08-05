@@ -43,16 +43,16 @@ const NavBar = ({ user }) => {
                 <MDBNavLink to="/">Home</MDBNavLink>
               </MDBNavItem>
               <MDBNavItem>
-                <MDBNavLink to="/">Dashboard</MDBNavLink>
+                <MDBNavLink to="/dashboard">Dashboard</MDBNavLink>
               </MDBNavItem>
               <MDBNavItem>
                 {isOpen ? (
                   <>
                     <MDBNavItem>
-                      <MDBNavLink to="/">Search Tool</MDBNavLink>
+                      <MDBNavLink to="/search-tool">Search Tool</MDBNavLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink to="/">Random Leads</MDBNavLink>
+                      <MDBNavLink to="/random-leads">Random Leads</MDBNavLink>
                     </MDBNavItem>
                   </>
                 ) : (
@@ -61,8 +61,12 @@ const NavBar = ({ user }) => {
                       <div className="d-none d-md-inline">Prospecting</div>
                     </MDBDropdownToggle>
                     <MDBDropdownMenu className="dropdown-default">
-                      <MDBDropdownItem href="/">Search Tool</MDBDropdownItem>
-                      <MDBDropdownItem href="/">Random Leads</MDBDropdownItem>
+                      <MDBDropdownItem href="/search-tool">
+                        Search Tool
+                      </MDBDropdownItem>
+                      <MDBDropdownItem href="/random-leads">
+                        Random Leads
+                      </MDBDropdownItem>
                     </MDBDropdownMenu>
                   </MDBDropdown>
                 )}
@@ -79,7 +83,15 @@ const NavBar = ({ user }) => {
                 ) : (
                   <MDBDropdown>
                     <MDBDropdownToggle nav caret>
-                      <MDBIcon icon="user" className={styles.userIcon} />
+                      {user.photoURL ? (
+                        <img
+                          src={user.photoURL}
+                          alt="profile-pic"
+                          className={styles.navBarProfilePic}
+                        />
+                      ) : (
+                        <MDBIcon icon="user" className={styles.userIcon} />
+                      )}
                     </MDBDropdownToggle>
 
                     <MDBDropdownMenu className={styles.userDropDown}>
@@ -96,7 +108,7 @@ const NavBar = ({ user }) => {
       ) : (
         <MDBNavbarNav right>
           <MDBNavItem>
-            <MDBNavLink to="/" onClick={signInWithGoogle}>
+            <MDBNavLink to="/dashboard" onClick={signInWithGoogle}>
               Sign In
             </MDBNavLink>
           </MDBNavItem>

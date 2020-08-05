@@ -12,4 +12,9 @@
   .userDropDown {
     transform: translate3d(-120px, 40px, 0px);
   }
+
+  &ProfilePic {
+    border-radius: 50%;
+    width: 40px;
+  }
 }
