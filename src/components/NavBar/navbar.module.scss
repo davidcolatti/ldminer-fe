@@ -1,5 +1,10 @@
+@import "../../assets/scss/variables.scss";
+
 .navBar {
-  background-color: rgba(0, 0, 0, 0.384);
+  position: fixed !important;
+  background-color: $color-primarybg;
+  width: 100%;
+  z-index: 1;
 
   .emblem {
     width: 60px;

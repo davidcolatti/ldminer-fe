@@ -27,7 +27,7 @@ const App = () => {
   }, [userAuthenticaton]);
 
   return (
-    <>
+    <div className="app">
       <NavBar user={user} />
 
       <Switch>
@@ -40,7 +40,7 @@ const App = () => {
         <Route exact path="/random-leads" component={NotFound} />
         <Route exact path="/search-tool" component={NotFound} />
       </Switch>
-    </>
+    </div>
   );
 };
 
