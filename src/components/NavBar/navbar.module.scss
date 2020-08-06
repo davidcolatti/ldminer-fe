@@ -3,6 +3,7 @@
 
   .emblem {
     width: 60px;
+    filter: drop-shadow(1px 2px 6px black);
   }
 
   .userIcon {
@@ -14,7 +15,8 @@
   }
 
   &ProfilePic {
-    border-radius: 50%;
     width: 40px;
+    border-radius: 50%;
+    filter: drop-shadow(1px 2px 6px black);
   }
 }
