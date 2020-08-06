@@ -6,8 +6,10 @@ const LandingPage = () => {
   return (
     <div className={styles.landing}>
       <div className={styles.landingCenter}>
-        <h1 className={styles.landingName}>LeadMiner</h1>
-        <i className={styles.landingQuote}>" good leads, easy sales "</i>
+        <div className={styles.landingHeading}>
+          <h1 className={styles.landingName}>LeadMiner</h1>
+          <i className={styles.landingQuote}>" good leads, easy sales "</i>
+        </div>
         <img
           alt="Man with laptop"
           className={styles.landingIconGuy}
