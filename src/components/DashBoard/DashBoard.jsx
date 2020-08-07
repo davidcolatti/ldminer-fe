@@ -1,8 +1,12 @@
 import React from "react";
 import Loading from "../Loading";
+import DataTable from "../DataTable";
+import styles from "./dashboard.module.scss";
 
 const Dashboard = ({ user }) => {
-  return <div>{user ? "Dashboard" : <Loading />}</div>;
+  return (
+    <div className={styles.dashboard}>{user ? <DataTable /> : <Loading />}</div>
+  );
 };
 
 export default Dashboard;

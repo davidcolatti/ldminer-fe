@@ -49,10 +49,10 @@ const NavBar = ({ user }) => {
                 {isOpen ? (
                   <>
                     <MDBNavItem>
-                      <MDBNavLink to="/search-tool">Search Tool</MDBNavLink>
+                      <MDBNavLink to="/random-leads">Quick Pick</MDBNavLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink to="/random-leads">Random Leads</MDBNavLink>
+                      <MDBNavLink to="/search-tool">Search Tool</MDBNavLink>
                     </MDBNavItem>
                   </>
                 ) : (
@@ -61,11 +61,11 @@ const NavBar = ({ user }) => {
                       <div className="d-none d-md-inline">Prospecting</div>
                     </MDBDropdownToggle>
                     <MDBDropdownMenu className="dropdown-default">
+                      <MDBDropdownItem href="/random-leads">
+                        Quick Pick
+                      </MDBDropdownItem>
                       <MDBDropdownItem href="/search-tool">
                         Search Tool
-                      </MDBDropdownItem>
-                      <MDBDropdownItem href="/random-leads">
-                        Random Leads
                       </MDBDropdownItem>
                     </MDBDropdownMenu>
                   </MDBDropdown>

@@ -1,7 +1,6 @@
 @import "../../assets/scss/variables.scss";
 
 .navBar {
-  position: fixed !important;
   background-color: $color-primarybg;
   width: 100%;
   z-index: 1;
@@ -23,5 +22,11 @@
     width: 40px;
     border-radius: 50%;
     filter: drop-shadow(1px 2px 6px black);
+  }
+}
+
+@media only screen and (max-width: $breakpoint-phone) {
+  .navBar {
+    min-width: 520px;
   }
 }
