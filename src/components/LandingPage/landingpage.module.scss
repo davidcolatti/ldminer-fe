@@ -1,7 +1,7 @@
 @import "./../../assets/scss/variables.scss";
 
 .landing {
-  padding: 0 2rem;
+  // padding: 0 2rem;
 
   &Center {
     display: flex;
@@ -64,36 +64,68 @@
   }
 }
 
-// @media only screen and (max-width: $breakpoint-phone) {
-//   .landing {
-//     &Center {
-//       height: 250px;
-//     }
+@media only screen and (max-width: $breakpoint-tablet) {
+  .landing {
+    &Heading {
+      margin-right: 0;
+    }
 
-//     &Heading {
-//       font-size: 14px;
-//     }
+    &Name {
+      font-size: 70px;
+    }
 
-//     &IconGuy {
-//       //   margin-right: 0;
-//       align-self: flex-end;
-//       width: 150px;
-//     }
-//   }
-// }
+    &Quote {
+      font-size: 20px;
+    }
 
-// @media only screen and (max-width: $breakpoint-tablet) {
-//   .landing {
-//     &Heading {
-//       margin-right: 0;
-//     }
+    &IconGuy {
+      margin-right: 0;
+    }
 
-//     &Name {
-//       font-size: 70px;
-//     }
+    &Feature {
+      height: 70%;
+    }
+  }
+}
 
-//     &IconGuy {
-//       margin-right: 0;
-//     }
-//   }
-// }
+@media only screen and (max-width: $breakpoint-phone) {
+  .landing {
+    min-width: 520px;
+
+    &Center {
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    &Heading {
+      position: absolute;
+      top: 20%;
+      left: 10px;
+    }
+
+    &IconGuy {
+      width: 80%;
+      position: absolute;
+      bottom: 0;
+    }
+
+    &FeatureGroup {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      height: 100%;
+    }
+
+    &Feature {
+      width: 90%;
+
+      h2 {
+        margin-top: 0;
+      }
+
+      p {
+        margin-top: 1rem;
+      }
+    }
+  }
+}
