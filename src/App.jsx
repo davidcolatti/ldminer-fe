@@ -7,10 +7,6 @@ import Dashboard from "./components/Dashboard";
 import LandingPage from "./components/LandingPage";
 import { Switch, Route } from "react-router-dom";
 
-const NotFound = () => {
-  return <div>404</div>;
-};
-
 const App = () => {
   const userAuthenticaton = useContext(UserContext);
   const [user, setUser] = useState(null);
@@ -37,8 +33,8 @@ const App = () => {
           path="/dashboard"
           render={() => <Dashboard user={user} />}
         />
-        <Route exact path="/random-leads" component={NotFound} />
-        <Route exact path="/search-tool" component={NotFound} />
+        <Route exact path="/random-leads" render={() => <div>404</div>} />
+        <Route exact path="/search-tool" render={() => <div>404</div>} />
       </Switch>
     </div>
   );
