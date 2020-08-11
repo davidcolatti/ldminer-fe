@@ -4,7 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import UserProvider from "./providers/UserProvider";
 import App from "./App";
-import "./index.scss";
+import "./assets/scss/main.scss";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";

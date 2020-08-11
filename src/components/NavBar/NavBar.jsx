@@ -31,7 +31,7 @@ const NavBar = ({ user }) => {
   return (
     <MDBNavbar className={styles.navBar} dark expand="md">
       <MDBNavbarBrand>
-        <img src={emblem} className={styles.emblem} alt="emblem" />
+        <img src={emblem} className={styles.navBarEmblem} alt="emblem" />
       </MDBNavbarBrand>
 
       {user ? (
@@ -90,11 +90,14 @@ const NavBar = ({ user }) => {
                           className={styles.navBarProfilePic}
                         />
                       ) : (
-                        <MDBIcon icon="user" className={styles.userIcon} />
+                        <MDBIcon
+                          icon="user"
+                          className={styles.navBarUserIcon}
+                        />
                       )}
                     </MDBDropdownToggle>
 
-                    <MDBDropdownMenu className={styles.userDropDown}>
+                    <MDBDropdownMenu className={styles.navBarUserDropDown}>
                       <MDBDropdownItem href="/" onClick={handleSignOut}>
                         Sign Out
                       </MDBDropdownItem>

@@ -43,7 +43,6 @@ const LandingPage = () => {
           </p>
         </section>
       </div>
-      <span className={styles.landingMobileUpBtn} />
     </div>
   );
 };

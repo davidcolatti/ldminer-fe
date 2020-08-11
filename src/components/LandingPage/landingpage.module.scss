@@ -1,129 +1,59 @@
-@import "./../../assets/scss/variables.scss";
+@import "../../assets/scss/config";
 
 .landing {
   &Center {
+    height: 60vh;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
-    height: 850px;
-    position: relative;
+    padding-left: 20%;
   }
 
   &Heading {
     margin-right: 5rem;
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
   }
 
   &Name {
-    color: black;
     font-weight: 400;
-    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.411);
   }
 
   &Quote {
-    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.411);
+    color: black;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
   }
 
   &IconGuy {
-    margin-right: 7rem;
-    align-self: flex-end;
+    height: 100%;
   }
 
   &FeatureGroup {
-    box-shadow: 0 -5px 5px -5px rgba(51, 51, 51, 0.479);
-    background-color: $color-secondbg;
     display: flex;
-    height: 520px;
+    height: 30vh;
+    color: white;
+    padding: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 -5px 5px -5px #333;
   }
 
   &Feature {
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    flex-flow: column;
+    text-align: center;
     align-items: center;
-    width: 50%;
-    margin: 2rem;
-    padding: 1rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-
-    &:hover {
-      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
-        0 10px 10px rgba(0, 0, 0, 0.22);
-    }
+    justify-content: center;
+    padding: 0 1rem;
+    border-right: 1px solid white;
 
     h2 {
-      margin-top: 3rem;
+      font-size: 30px;
+      margin-bottom: 2rem;
     }
 
     p {
-      margin-top: 3rem;
-      text-align: center;
-    }
-  }
-}
-
-@media only screen and (max-width: $breakpoint-tablet) {
-  .landing {
-    &Heading {
-      margin-right: 0;
-    }
-
-    &Name {
-      font-size: 70px;
-    }
-
-    &Quote {
-      font-size: 20px;
-    }
-
-    &IconGuy {
-      margin-right: 0;
-    }
-
-    &Feature {
-      height: 70%;
-    }
-  }
-}
-
-@media only screen and (max-width: $breakpoint-phone) {
-  .landing {
-    min-width: 520px;
-
-    &Center {
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    &Heading {
-      position: absolute;
-      top: 20%;
-      left: 10px;
-    }
-
-    &IconGuy {
-      width: 80%;
-      position: absolute;
-      bottom: 0;
-    }
-
-    &FeatureGroup {
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      height: 100%;
-    }
-
-    &Feature {
-      width: 90%;
-
-      h2 {
-        margin-top: 0;
-      }
-
-      p {
-        margin-top: 1rem;
-      }
+      font-size: 15px;
     }
   }
 }

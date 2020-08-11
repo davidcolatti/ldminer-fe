@@ -1,20 +1,19 @@
-@import "../../assets/scss/variables.scss";
+@import "../../assets/scss/config";
 
 .navBar {
-  background-color: $color-primarybg;
+  background: rgba(0, 0, 0, 0.5);
   width: 100%;
-  z-index: 1;
 
-  .emblem {
+  &Emblem {
     width: 60px;
     filter: drop-shadow(1px 2px 6px black);
   }
 
-  .userIcon {
+  &UserIcon {
     font-size: 20px;
   }
 
-  .userDropDown {
+  &UserDropDown {
     transform: translate3d(-120px, 40px, 0px);
   }
 
@@ -22,11 +21,5 @@
     width: 40px;
     border-radius: 50%;
     filter: drop-shadow(1px 2px 6px black);
-  }
-}
-
-@media only screen and (max-width: $breakpoint-phone) {
-  .navBar {
-    min-width: 520px;
   }
 }
