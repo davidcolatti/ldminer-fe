@@ -32,12 +32,14 @@
     display: flex;
     height: 30vh;
     color: white;
-    padding: 1.5rem;
     background-color: rgba(0, 0, 0, 0.5);
     box-shadow: 0 -5px 5px -5px #333;
+    align-items: center;
+    justify-content: center;
   }
 
   &Feature {
+    height: 80%;
     width: 100%;
     display: flex;
     flex-flow: column;
@@ -54,6 +56,10 @@
 
     p {
       font-size: 15px;
+    }
+
+    &:nth-child(3) {
+      border: none;
     }
   }
 }
