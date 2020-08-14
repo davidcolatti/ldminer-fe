@@ -33,7 +33,7 @@ const App = () => {
           path="/dashboard"
           render={() => <Dashboard user={user} />}
         />
-        <Route exact path="/random-leads" render={() => <div>404</div>} />
+        <Route exact path="/quick-pick" render={() => <div>404</div>} />
         <Route exact path="/search-tool" render={() => <div>404</div>} />
       </Switch>
     </div>
