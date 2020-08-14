@@ -8,6 +8,11 @@ const resolvers = {
 
       return res;
     },
+    randomLeads: async () => {
+      const res = await Lead.aggregate([{ $sample: { size: 20 } }]);
+
+      return res;
+    },
     leadsCount: async () => {
       const res = await Lead.countDocuments();
 

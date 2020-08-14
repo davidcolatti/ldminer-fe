@@ -20,6 +20,26 @@ export const GET_LEADS = gql`
   }
 `;
 
+export const GET_RANDOMLEADS = gql`
+  query {
+    randomLeads {
+      _id
+      businessName
+      phoneNumber
+      city
+      state
+      firstName
+      lastName
+      streetAddress
+      secondPhoneNumber
+      notes
+      category
+      email
+      disposition
+    }
+  }
+`;
+
 export const GET_LEADSCOUNT = gql`
   query {
     leadsCount

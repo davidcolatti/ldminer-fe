@@ -30,6 +30,7 @@ const typeDefs = gql`
   type Query {
     leads: [Lead]
     leadsCount: Int
+    randomLeads: [Lead]
     findUser(uid: String!): User!
   }
 `;
