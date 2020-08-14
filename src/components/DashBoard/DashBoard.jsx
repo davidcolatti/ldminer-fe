@@ -25,8 +25,8 @@ const Dashboard = ({ user }) => {
     city: "Boca",
     state: "FL",
     disposition: "Prospect",
-    edit: <button>Edit</button>,
-    delete: <button>Delete</button>,
+    edit: <i class="fas fa-edit" />,
+    delete: <i class="fas fa-trash-alt" />,
   });
 
   const data = {
@@ -35,46 +35,38 @@ const Dashboard = ({ user }) => {
         label: "Company",
         field: "businessName",
         sort: "asc",
-        width: 150,
       },
       {
         label: "Category",
         field: "category",
         sort: "asc",
-        width: 270,
       },
       {
         label: "Phone",
         field: "phoneNumber",
-        width: 200,
       },
       {
         label: "City",
         field: "city",
         sort: "asc",
-        width: 100,
       },
       {
         label: "State",
         field: "state",
         sort: "asc",
-        width: 150,
       },
       {
         label: "Disposition",
         field: "disposition",
         sort: "asc",
-        width: 100,
       },
       {
         label: "Edit",
         field: "edit",
-        width: 100,
       },
       {
         label: "Delete",
         field: "delete",
-        width: 100,
       },
     ],
     rows: rows,
@@ -82,7 +74,11 @@ const Dashboard = ({ user }) => {
 
   return (
     <div className={styles.dashboard}>
-      {user ? <MDBDataTable striped bordered small data={data} /> : <Loading />}
+      {user ? (
+        <MDBDataTable responsive striped small data={data} />
+      ) : (
+        <Loading />
+      )}
     </div>
   );
 };
