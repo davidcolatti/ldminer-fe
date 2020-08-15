@@ -111,7 +111,7 @@ const NavBar = ({ user }) => {
       ) : (
         <MDBNavbarNav right>
           <MDBNavItem>
-            <MDBNavLink to="/dashboard" onClick={signInWithGoogle}>
+            <MDBNavLink to="/" onClick={signInWithGoogle}>
               Sign In
             </MDBNavLink>
           </MDBNavItem>
