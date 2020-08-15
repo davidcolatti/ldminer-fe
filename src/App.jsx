@@ -3,10 +3,10 @@ import { Switch, Route } from "react-router-dom";
 import { UserContext } from "./providers/UserProvider";
 import actions from "./services";
 
-import NavBar from "./components/NavBar/NavBar";
-import QuickPick from "./components/QuickPick/QuickPick";
-import Dashboard from "./components/Dashboard/Dashboard";
-import LandingPage from "./components/LandingPage/LandingPage";
+import NavBar from "./components/NavBar";
+import Dashboard from "./components/Dashboard";
+import QuickPick from "./components/QuickPick";
+import LandingPage from "./components/LandingPage";
 
 const App = () => {
   const userAuthenticaton = useContext(UserContext);
