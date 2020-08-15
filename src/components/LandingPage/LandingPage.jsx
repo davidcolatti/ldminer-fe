@@ -1,8 +1,12 @@
 import React from "react";
+import { useQuery } from "@apollo/client";
+import { GET_LEADSCOUNT } from "../../graphql/queries";
 import styles from "./landingpage.module.scss";
 import landingGuy from "../../assets/images/landing-guy-icon.png";
 
 const LandingPage = () => {
+  const { data } = useQuery(GET_LEADSCOUNT);
+
   return (
     <div className={styles.landing}>
       <div className={styles.landingCenter}>
@@ -19,7 +23,7 @@ const LandingPage = () => {
 
       <div className={styles.landingFeatureGroup}>
         <section className={styles.landingFeature}>
-          <h2>{`Fresh Leads`}</h2>
+          <h2>{`${data?.leadsCount} Fresh Leads`}</h2>
           <p>
             Our software is created to mine small business information that is
             brand new, with little to no web-presence.

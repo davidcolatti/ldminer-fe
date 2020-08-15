@@ -1,11 +1,11 @@
 import React from "react";
 import Loading from "../Loading/Loading";
-import { MDBDataTable } from "mdbreact";
+import { MDBDataTableV5 } from "mdbreact";
 
 import styles from "./dashboard.module.scss";
 
 const Dashboard = ({ user }) => {
-  // const rows = user?.leadsList.map((lead) => {
+  // const rows = user?.leadsList.map(() => {
   //   return {
   //     businessName: "My Business",
   //     category: "Landscaping",
@@ -13,12 +13,12 @@ const Dashboard = ({ user }) => {
   //     city: "Boca",
   //     state: "FL",
   //     disposition: "Prospect",
-  //     edit: "EDIT BTN",
-  //     delete: "DELETE BTN",
+  //     edit: <i class="fas fa-edit" />,
+  //     delete: <i class="fas fa-trash-alt" />,
   //   };
   // });
 
-  const rows = new Array(7).fill({
+  const rows = new Array(30).fill({
     businessName: "My Business",
     category: "Landscaping",
     phoneNumber: "561-703-1280",
@@ -75,7 +75,16 @@ const Dashboard = ({ user }) => {
   return (
     <div className={styles.dashboard}>
       {user ? (
-        <MDBDataTable responsive striped small data={data} />
+        <MDBDataTableV5
+          hover
+          searchTop
+          responsive
+          data={data}
+          entries={5}
+          pagesAmount={4}
+          searchBottom={false}
+          entriesOptions={[5, 10, 20]}
+        />
       ) : (
         <Loading />
       )}
