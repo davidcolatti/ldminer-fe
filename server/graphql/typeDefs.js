@@ -11,7 +11,7 @@ const typeDefs = gql`
     lastName: String
     streetAddress: String
     secondPhoneNumber: String
-    notes: String
+    notes: [String]
     category: [String]
     email: String
     disposition: String

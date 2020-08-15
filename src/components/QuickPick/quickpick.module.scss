@@ -1,7 +1,7 @@
-.dashboard {
+.quickPick {
   height: 100vh;
   color: white;
-  padding: 3rem 2rem;
+  padding: 0 2rem;
   background: rgba(0, 0, 0, 0.2);
 
   table {
@@ -9,7 +9,7 @@
   }
 
   i {
-    font-size: 17px;
+    font-size: 20px;
     cursor: pointer;
 
     &:hover {

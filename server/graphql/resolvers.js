@@ -9,7 +9,7 @@ const resolvers = {
       return res;
     },
     randomLeads: async () => {
-      const res = await Lead.aggregate([{ $sample: { size: 20 } }]);
+      const res = await Lead.aggregate([{ $sample: { size: 12 } }]);
 
       return res;
     },

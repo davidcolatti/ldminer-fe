@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
+import { Switch, Route } from "react-router-dom";
 import { UserContext } from "./providers/UserProvider";
 import actions from "./services";
 
 import NavBar from "./components/NavBar";
+import QuickPick from "./components/QuickPick";
 import Dashboard from "./components/Dashboard";
 import LandingPage from "./components/LandingPage";
-import { Switch, Route } from "react-router-dom";
 
 const App = () => {
   const userAuthenticaton = useContext(UserContext);
@@ -33,7 +34,11 @@ const App = () => {
           path="/dashboard"
           render={() => <Dashboard user={user} />}
         />
-        <Route exact path="/quick-pick" render={() => <div>404</div>} />
+        <Route
+          exact
+          path="/quick-pick"
+          render={() => <QuickPick user={user} />}
+        />
         <Route exact path="/search-tool" render={() => <div>404</div>} />
       </Switch>
     </div>
