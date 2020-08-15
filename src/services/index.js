@@ -1,11 +1,7 @@
 import axios from "axios";
-let baseURL;
 
-process.env.NODE_ENV === "production"
-  ? //? (baseURL = 'here should be your production endpoint')
-    (baseURL = window.location.origin)
-  : (baseURL = "http://localhost:4000");
-console.log(process.env.NODE_ENV, baseURL, "this is it");
+// Base URL is where the backend lives or it can be locally while in development
+let baseURL = "https://leadminerbackend.herokuapp.com";
 
 const service = axios.create({ withCredentials: true, baseURL });
 

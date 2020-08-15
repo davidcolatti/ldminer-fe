@@ -10,7 +10,7 @@ import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
 
 const client = new ApolloClient({
-  uri: "http://localhost:4000/graphql",
+  uri: "https://leadminerbackend.herokuapp.com/graphql",
   cache: new InMemoryCache(),
 });
 
