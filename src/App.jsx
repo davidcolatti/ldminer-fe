@@ -6,6 +6,7 @@ import actions from "./services";
 import NavBar from "./components/NavBar";
 import Dashboard from "./components/Dashboard";
 import QuickPick from "./components/QuickPick";
+import SearchTool from "./components/SearchTool";
 import LandingPage from "./components/LandingPage";
 
 const App = () => {
@@ -39,7 +40,11 @@ const App = () => {
           path="/quick-pick"
           render={() => <QuickPick user={user} />}
         />
-        <Route exact path="/search-tool" render={() => <div>404</div>} />
+        <Route
+          exact
+          path="/search-tool"
+          render={() => <SearchTool user={user} />}
+        />
       </Switch>
     </div>
   );
