@@ -5,29 +5,29 @@ import { MDBDataTableV5 } from "mdbreact";
 import styles from "./dashboard.module.scss";
 
 const Dashboard = ({ user }) => {
-  // const rows = user?.leadsList.map(() => {
-  //   return {
-  //     businessName: "My Business",
-  //     category: "Landscaping",
-  //     phoneNumber: "561-703-1280",
-  //     city: "Boca",
-  //     state: "FL",
-  //     disposition: "Prospect",
-  //     edit: <i class="fas fa-edit" />,
-  //     delete: <i class="fas fa-trash-alt" />,
-  //   };
-  // });
-
-  const rows = new Array(30).fill({
-    businessName: "My Business",
-    category: "Landscaping",
-    phoneNumber: "561-703-1280",
-    city: "Boca",
-    state: "FL",
-    disposition: "Prospect",
-    edit: <i class="fas fa-edit" />,
-    delete: <i class="fas fa-trash-alt" />,
+  const rows = user?.leadsList.map(() => {
+    return {
+      businessName: "My Business",
+      category: "Landscaping",
+      phoneNumber: "561-703-1280",
+      city: "Boca",
+      state: "FL",
+      disposition: "Prospect",
+      edit: <i class="fas fa-edit" />,
+      delete: <i class="fas fa-trash-alt" />,
+    };
   });
+
+  // const rows = new Array(30).fill({
+  //   businessName: "My Business",
+  //   category: "Landscaping",
+  //   phoneNumber: "561-703-1280",
+  //   city: "Boca",
+  //   state: "FL",
+  //   disposition: "Prospect",
+  //   edit: <i class="fas fa-edit" />,
+  //   delete: <i class="fas fa-trash-alt" />,
+  // });
 
   const data = {
     columns: [

@@ -23,7 +23,7 @@ const LandingPage = () => {
 
       <div className={styles.landingFeatureGroup}>
         <section className={styles.landingFeature}>
-          <h2>{`${data?.leadsCount} Fresh Leads`}</h2>
+          <h2>{`${data ? data.leadsCount : ""} Fresh Leads`}</h2>
           <p>
             Our software is created to mine small business information that is
             brand new, with little to no web-presence.
