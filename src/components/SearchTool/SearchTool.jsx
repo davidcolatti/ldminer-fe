@@ -12,59 +12,65 @@ const SearchTool = ({ user }) => {
 
   return (
     <div className={styles.searchTool}>
-      <form>
-        <div>
-          <input
-            name="businessName"
-            id="businessName"
-            type="radio"
-            checked={keyType === "businessName"}
-            onChange={(e) => onRadioSelect(e.target.name)}
-          />
-          <label>Company</label>
-        </div>
-        <div>
-          <input
-            name="category"
-            id="category"
-            type="radio"
-            checked={keyType === "category"}
-            onChange={(e) => onRadioSelect(e.target.name)}
-          />
-          <label>Category</label>
-        </div>
-        <div>
-          <input
-            name="city"
-            id="city"
-            type="radio"
-            checked={keyType === "city"}
-            onChange={(e) => onRadioSelect(e.target.name)}
-          />
-          <label>City</label>
-        </div>
-        <div>
-          <input
-            name="state"
-            id="state"
-            type="radio"
-            checked={keyType === "state"}
-            onChange={(e) => onRadioSelect(e.target.name)}
-          />
-          <label>State</label>
-        </div>
-      </form>
+      {user ? (
+        <>
+          <form>
+            <div>
+              <input
+                name="businessName"
+                id="businessName"
+                type="radio"
+                checked={keyType === "businessName"}
+                onChange={(e) => onRadioSelect(e.target.name)}
+              />
+              <label>Company</label>
+            </div>
+            <div>
+              <input
+                name="category"
+                id="category"
+                type="radio"
+                checked={keyType === "category"}
+                onChange={(e) => onRadioSelect(e.target.name)}
+              />
+              <label>Category</label>
+            </div>
+            <div>
+              <input
+                name="city"
+                id="city"
+                type="radio"
+                checked={keyType === "city"}
+                onChange={(e) => onRadioSelect(e.target.name)}
+              />
+              <label>City</label>
+            </div>
+            <div>
+              <input
+                name="state"
+                id="state"
+                type="radio"
+                checked={keyType === "state"}
+                onChange={(e) => onRadioSelect(e.target.name)}
+              />
+              <label>State</label>
+            </div>
+          </form>
 
-      <div className={styles.searchToolSearchContainer}>
-        <input
-          type="text"
-          value={searchTerm}
-          placeholder="Search..."
-          className={styles.searchToolBar}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <i className={`fas fa-search ${styles.searchToolIcon}`} />
-      </div>
+          <div className={styles.searchToolSearchContainer}>
+            <input
+              type="text"
+              value={searchTerm}
+              placeholder="Search..."
+              className={styles.searchToolBar}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <i className={`fas fa-search ${styles.searchToolIcon}`} />
+          </div>
+        </>
+      ) : (
+        <Loading />
+      )}
     </div>
   );
 };
