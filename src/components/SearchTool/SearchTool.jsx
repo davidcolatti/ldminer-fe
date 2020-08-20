@@ -14,7 +14,7 @@ const SearchTool = ({ user }) => {
     <div className={styles.searchTool}>
       {user ? (
         <>
-          <form>
+          <form className={styles.searchToolRadioGroup}>
             <div>
               <input
                 name="businessName"
@@ -23,7 +23,7 @@ const SearchTool = ({ user }) => {
                 checked={keyType === "businessName"}
                 onChange={(e) => onRadioSelect(e.target.name)}
               />
-              <label>Company</label>
+              <label className={styles.searchToolRadioLabel}>Company</label>
             </div>
             <div>
               <input
@@ -33,7 +33,7 @@ const SearchTool = ({ user }) => {
                 checked={keyType === "category"}
                 onChange={(e) => onRadioSelect(e.target.name)}
               />
-              <label>Category</label>
+              <label className={styles.searchToolRadioLabel}>Category</label>
             </div>
             <div>
               <input
@@ -43,7 +43,7 @@ const SearchTool = ({ user }) => {
                 checked={keyType === "city"}
                 onChange={(e) => onRadioSelect(e.target.name)}
               />
-              <label>City</label>
+              <label className={styles.searchToolRadioLabel}>City</label>
             </div>
             <div>
               <input
@@ -53,7 +53,7 @@ const SearchTool = ({ user }) => {
                 checked={keyType === "state"}
                 onChange={(e) => onRadioSelect(e.target.name)}
               />
-              <label>State</label>
+              <label className={styles.searchToolRadioLabel}>State</label>
             </div>
           </form>
 

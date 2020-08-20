@@ -40,4 +40,17 @@
     margin-right: 15px;
     font-size: 20px;
   }
+
+  &RadioGroup {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 30%;
+    padding: 0.5rem 0;
+  }
+
+  &RadioLabel {
+    margin-left: 10px;
+    color: white;
+    font-weight: 500;
+  }
 }
