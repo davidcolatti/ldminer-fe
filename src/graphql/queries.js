@@ -72,3 +72,23 @@ export const GET_USER = gql`
     }
   }
 `;
+
+export const SEARCH_LEADS = gql`
+  query searchLeads($key: String!, $searchTerm: String!) {
+    searchLeads(key: $key, searchTerm: $searchTerm) {
+      _id
+      businessName
+      phoneNumber
+      city
+      state
+      firstName
+      lastName
+      streetAddress
+      secondPhoneNumber
+      notes
+      category
+      email
+      disposition
+    }
+  }
+`;

@@ -1,10 +1,21 @@
 import React, { useState } from "react";
+import { useQuery } from "@apollo/client";
 import Loading from "../Loading/Loading";
 import styles from "./searchtool.module.scss";
+import { SEARCH_LEADS } from "./../../graphql/queries";
 
 const SearchTool = ({ user }) => {
   const [keyType, setKeyType] = useState("businessName");
   const [searchTerm, setSearchTerm] = useState("");
+  const { loading, data } = useQuery(SEARCH_LEADS, {
+    variables: {
+      key: keyType,
+      searchTerm: searchTerm,
+    },
+  });
+
+  if (loading) console.log(loading);
+  if (data) console.log(data);
 
   const onRadioSelect = (type) => {
     setKeyType(type);
