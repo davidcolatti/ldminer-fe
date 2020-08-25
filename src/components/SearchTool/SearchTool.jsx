@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
+import { MDBDataTableV5 } from "mdbreact";
 import Loading from "../Loading/Loading";
 import styles from "./searchtool.module.scss";
 import { SEARCH_LEADS } from "./../../graphql/queries";
@@ -7,18 +8,61 @@ import { SEARCH_LEADS } from "./../../graphql/queries";
 const SearchTool = ({ user }) => {
   const [keyType, setKeyType] = useState("businessName");
   const [searchTerm, setSearchTerm] = useState("");
-  const { loading, data } = useQuery(SEARCH_LEADS, {
+  const { data } = useQuery(SEARCH_LEADS, {
     variables: {
       key: keyType,
       searchTerm: searchTerm,
     },
   });
 
-  if (loading) console.log(loading);
-  if (data) console.log(data);
+  const handleAddBtn = (lead) => {
+    user.leadsList.push(lead);
+    console.log(user.leadsList);
+  };
 
-  const onRadioSelect = (type) => {
-    setKeyType(type);
+  const rows = data?.searchLeads.map((lead) => {
+    const { businessName, category, city, state } = lead;
+
+    return {
+      add: (
+        <i onClick={() => handleAddBtn(lead)} className="fas fa-plus-circle" />
+      ),
+      businessName: businessName,
+      category: category[0] || category,
+      city: city,
+      state: state,
+    };
+  });
+
+  const tableData = {
+    columns: [
+      {
+        label: "Add",
+        field: "add",
+      },
+      {
+        label: "Company",
+        field: "businessName",
+        sort: "asc",
+      },
+      {
+        label: "Category",
+        field: "category",
+        sort: "asc",
+      },
+
+      {
+        label: "City",
+        field: "city",
+        sort: "asc",
+      },
+      {
+        label: "State",
+        field: "state",
+        sort: "asc",
+      },
+    ],
+    rows: rows,
   };
 
   return (
@@ -32,7 +76,7 @@ const SearchTool = ({ user }) => {
                 id="businessName"
                 type="radio"
                 checked={keyType === "businessName"}
-                onChange={(e) => onRadioSelect(e.target.name)}
+                onChange={(e) => setKeyType(e.target.name)}
               />
               <label className={styles.searchToolRadioLabel}>Company</label>
             </div>
@@ -42,7 +86,7 @@ const SearchTool = ({ user }) => {
                 id="category"
                 type="radio"
                 checked={keyType === "category"}
-                onChange={(e) => onRadioSelect(e.target.name)}
+                onChange={(e) => setKeyType(e.target.name)}
               />
               <label className={styles.searchToolRadioLabel}>Category</label>
             </div>
@@ -52,7 +96,7 @@ const SearchTool = ({ user }) => {
                 id="city"
                 type="radio"
                 checked={keyType === "city"}
-                onChange={(e) => onRadioSelect(e.target.name)}
+                onChange={(e) => setKeyType(e.target.name)}
               />
               <label className={styles.searchToolRadioLabel}>City</label>
             </div>
@@ -62,7 +106,7 @@ const SearchTool = ({ user }) => {
                 id="state"
                 type="radio"
                 checked={keyType === "state"}
-                onChange={(e) => onRadioSelect(e.target.name)}
+                onChange={(e) => setKeyType(e.target.name)}
               />
               <label className={styles.searchToolRadioLabel}>State</label>
             </div>
@@ -78,6 +122,7 @@ const SearchTool = ({ user }) => {
             />
             <i className={`fas fa-search ${styles.searchToolIcon}`} />
           </div>
+          <MDBDataTableV5 hover searching={false} responsive data={tableData} />
         </>
       ) : (
         <Loading />
